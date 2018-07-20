@@ -1,13 +1,21 @@
 ---
-- name: add user account
+- name: Add my user account
   user: 
     name: jhughes
     shell: /bin/bash
     groups: wheel
     append: yes
 
-- name: add key for jhughes user
+- name: Add key for jhughes user
   authorized_key:
     user: jhughes
     state: present
     key: https://github.com/jhughes01.keys
+
+- name: Add sudoers file for jhughes
+  copy:
+    src: jhughes-sudoers.txt
+    dest: /etc/sudoers.d/jhughes_all
+    owner: root
+    group: root
+    mode: 0644
