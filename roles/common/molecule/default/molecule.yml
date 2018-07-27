@@ -9,7 +9,7 @@ lint:
     config-file: molecule/default/yamllint.yml
 platforms:
   - name: instance
-    image: centos:7
+    image: centos/systemd:latest
 provisioner:
   name: ansible
   lint:
