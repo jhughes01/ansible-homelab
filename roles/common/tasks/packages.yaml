@@ -11,6 +11,5 @@
     name: "{{ packages }}"
   vars:
     packages:
-    - git
-    - bind-utils
-
+      - git
+      - bind-utils

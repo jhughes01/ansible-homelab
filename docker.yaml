@@ -1,0 +1,6 @@
+---
+- hosts: plex
+  remote_user: ansible
+  roles:
+  - common
+  - docker

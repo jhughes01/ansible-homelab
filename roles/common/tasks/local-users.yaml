@@ -1,6 +1,6 @@
 ---
 - name: Add my user account
-  user: 
+  user:
     name: jhughes
     shell: /bin/bash
     groups: wheel

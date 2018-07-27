@@ -4,25 +4,25 @@
     name: plex
     description: Plex Media Server repo
     baseurl: https://downloads.plex.tv/repo/rpm/$basearch/
-    gpgcheck: yes
+    gpgcheck: true
     gpgkey: https://downloads.plex.tv/plex-keys/PlexSign.key
 
 - name: Install Plex Media Server package
-  yum: 
+  yum:
     name: plexmediaserver
     state: latest
 
 - import_tasks: nfs-mount.yaml
 
 - name: Start and enable plex
-  service: 
+  service:
     name: plexmediaserver
     state: started
-    enabled: yes
+    enabled: true
 
 - name: Plex firewall rule
   firewalld:
-     port: 32400/tcp
-     permanent: true
-     state: enabled
-     immediate: yes
+    port: 32400/tcp
+    permanent: true
+    state: enabled
+    immediate: true
