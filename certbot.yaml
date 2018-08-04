@@ -1,6 +1,6 @@
 ---
-- hosts: docker
+- hosts: certbot
   remote_user: ansible
   roles:
   - common
-  - docker
+  - certbot

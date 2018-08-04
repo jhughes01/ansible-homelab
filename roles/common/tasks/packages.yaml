@@ -5,6 +5,7 @@
     description: EPEL YUM repo
     baseurl: https://download.fedoraproject.org/pub/epel/$releasever/$basearch/
     gpgcheck: yes
+    gpgkey: https://download.fedoraproject.org/pub/epel/RPM-GPG-KEY-EPEL-7
 
 - name: Install common packages
   yum:
