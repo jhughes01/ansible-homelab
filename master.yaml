@@ -1,3 +1,4 @@
 ---
 - import_playbook: common.yaml
 - import_playbook: plex.yaml
+- import_playbook: certbot.yaml
