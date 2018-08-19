@@ -1,0 +1,6 @@
+---
+- name: Create / renew letsencrypt certificate
+  shell: "{{certbot_command}}"
+  environment:
+    AWS_ACCESS_KEY_ID: "{{certbot_AWS_ACCESS_KEY}}"
+    AWS_SECRET_ACCESS_KEY: "{{certbot_AWS_SECRET_KEY}}"
