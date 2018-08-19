@@ -5,18 +5,15 @@ services:
 stages:
   - test
 
-before_script:
-  - pip3 install virtualenv
-  - virtualenv virtenv
-  - source virtenv/bin/activate
-  - pip3 install requirements.txt
-
 role-test-certbot:
   image: python:3
   stage: test
   tags:
     - docker
   script:
+    - sudo apt-get install -y python-pip libssl-dev 
+    - pip3 install ansible docker molecule
+    - docker -v
     - python -V
     - ansible --version
     - molecule --version
@@ -29,6 +26,9 @@ role-test-common:
   tags:
     - docker
   script:
+    - sudo apt-get install -y python-pip libssl-dev 
+    - pip3 install ansible docker molecule
+    - docker -v
     - python -V
     - ansible --version
     - molecule --version
@@ -41,8 +41,10 @@ role-test-plex:
   tags:
     - docker
   script:
+    - sudo apt-get install -y python-pip libssl-dev 
+    - pip3 install ansible docker molecule
+    - docker -v
     - python -V
     - ansible --version
     - molecule --version
     - pushd roles/plex
-    - molecule test
