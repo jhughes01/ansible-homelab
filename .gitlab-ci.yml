@@ -23,7 +23,6 @@ molecule:
     - docker
   script:
     - pip install ansible molecule docker
-    - docker -v
     - python -V
     - ansible --version
     - molecule --version
