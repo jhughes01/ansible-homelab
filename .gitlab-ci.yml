@@ -1,17 +1,14 @@
 ---
 image: python:3
 stages:
-  - role-test-certbot
-  - role-test-common
-  - role-test-plex
-  - role-test-docker
+  - test
 
 before_script:
   - pip3 install virtualenv
   - virtualenv virtenv
   - source virtenv/bin/activate
 
-molecule:
+role-test-certbot:
   stage: test
   tags:
     - docker
@@ -20,24 +17,11 @@ molecule:
     - python -V
     - ansible --version
     - molecule --version
-    - for role in ${ROLES[*]}; do
-      pushd roles/$role/ && molecule test && popd
-      done
-
-molecule:
-  stage: role-test-certbot
-  tags:
-    - docker
-  script:
-    - pip install ansible molecule docker
-    - python -V
-    - ansible --version
-    - molecule --version
-    - pushd roles/role-test-certbot
+    - pushd roles/certbot
     - molecule test
 
-molecule:
-  stage: role-test-common
+role-test-common:
+  stage: test
   tags:
     - docker
   script:
@@ -45,11 +29,11 @@ molecule:
     - python -V
     - ansible --version
     - molecule --version
-    - pushd roles/role-test-common
+    - pushd roles/common
     - molecule test
 
-molecule:
-  stage: role-test-docker
+role-test-docker:
+  stage: test
   tags:
     - docker
   script:
@@ -57,11 +41,11 @@ molecule:
     - python -V
     - ansible --version
     - molecule --version
-    - pushd roles/role-test-docker
+    - pushd roles/docker
     - molecule test
 
-molecule:
-  stage: role-test-plex
+role-test-plex:
+  stage: test
   tags:
     - docker
   script:
@@ -69,4 +53,4 @@ molecule:
     - python -V
     - ansible --version
     - molecule --version
-    - pushd roles/role-test-plex
+    - pushd roles/plex
