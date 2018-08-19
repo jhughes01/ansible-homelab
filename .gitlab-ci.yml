@@ -11,7 +11,7 @@ role-test-certbot:
   tags:
     - docker
   script:
-    - sudo apt-get install -y python-pip libssl-dev 
+    - apt-get install -y python-pip libssl-dev 
     - pip3 install ansible docker molecule
     - docker -v
     - python -V
@@ -26,7 +26,7 @@ role-test-common:
   tags:
     - docker
   script:
-    - sudo apt-get install -y python-pip libssl-dev 
+    - apt-get install -y python-pip libssl-dev 
     - pip3 install ansible docker molecule
     - docker -v
     - python -V
@@ -41,7 +41,7 @@ role-test-plex:
   tags:
     - docker
   script:
-    - sudo apt-get install -y python-pip libssl-dev 
+    - apt-get install -y python-pip libssl-dev 
     - pip3 install ansible docker molecule
     - docker -v
     - python -V
