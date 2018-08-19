@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/jhughes01/ansible-homelab.svg?branch=master)](https://travis-ci.org/jhughes01/ansible-homelab)
+
 # Ansible config and playbooks for my homelab.
 
 ![](https://whitesmith-website.s3.amazonaws.com/2016/Feb/ansible-1456397742246.png "Ansible Logo")
