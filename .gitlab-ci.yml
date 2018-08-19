@@ -1,0 +1,32 @@
+---
+stages:
+  - test
+
+variables:
+  PIP_CACHE_DIR: "$CI_PROJECT_DIR/.pip"
+  ROLES=(certbot common plex)
+
+cache:
+  paths:
+    - .pip/
+    - virtenv/
+
+before_script:
+  - pip3.6 install virtualenv
+  - virtualenv virtenv
+  - source virtenv/bin/activate
+
+molecule:
+  stage: test
+  tags:
+    - pip36
+    - docker
+  script:
+    - docker -v
+    - python -V
+    - pip install ansible molecule docker
+    - ansible --version
+    - molecule --version
+    - for role in ${ROLES[*]}; do
+      cd roles/$role/ && molecule test
+      done
