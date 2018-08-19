@@ -1,7 +1,8 @@
 ---
-image: docker:git
+image: docker:dind
 services:
   - docker:dind
+
 stages:
   - test
 
