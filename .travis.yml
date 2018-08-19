@@ -5,15 +5,9 @@ services:
   - docker
 before_install:
   - sudo apt-get -qq update
-env:
-  matrix:
-    allow_failures:
-      - env: untestable
 install:
   - pip install molecule
   - pip install docker
 script:
-  - pushd roles/common && molecule test
-  - pushd roles/certbot && molecule test
-  - pushd roles/plex && molecule test
-    env: untestable
+  - pushd roles/common
+  - molecule test
