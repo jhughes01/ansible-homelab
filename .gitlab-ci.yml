@@ -1,49 +1,28 @@
 ---
-image: docker:dind
-services:
-  - docker:dind
-
 stages:
   - test
 
-role-test-certbot:
-  image: retr0h/molecule
-  stage: test
-  tags:
-    - docker
-  script:
-    - docker -v
-    - python -V
-    - ansible --version
-    - molecule --version
-    - pushd roles/certbot
-    - molecule --debug test
-    - popd
+variables:
+  PIP_CACHE_DIR: "$CI_PROJECT_DIR/.pip"
 
-role-test-common:
-  image: retr0h/molecule
-  stage: test
-  tags:
-    - docker
-  script:
-    - docker -v
-    - python -V
-    - ansible --version
-    - molecule --version
-    - pushd roles/common
-    - molecule --debug test
-    - popd
+cache:
+  paths:
+    - .pip/
+    - virtenv/
 
-role-test-plex:
-  image: retr0h/molecule
+before_script:
+  - pip3.6 install virtualenv
+  - virtualenv virtenv
+  - source virtenv/bin/activate
+
+molecule:
   stage: test
   tags:
     - docker
   script:
     - docker -v
     - python -V
+    - pip install ansible molecule docker
     - ansible --version
     - molecule --version
-    - pushd roles/plex
-    - molecule --debug test
-    - popd
+    - molecule test
