@@ -3,3 +3,4 @@
 *pycache*
 *.log
 env/*
+*.pyc
