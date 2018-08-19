@@ -1,19 +1,22 @@
 ---
 sudo: required
+
 language: python
+
 services:
   - docker
+
 before_install:
   - sudo apt-get -qq update
+
 env:
-  matrix:
-    allow_failures:
-      - env: untestable
+  - ROLEFOLDER=roles/common
+  - ROLEFOLDER=roles/certbot
+  - ROLEFOLDER=roles/plex
+
 install:
   - pip install molecule
   - pip install docker
+
 script:
-  - pushd roles/common && molecule test
-  - pushd roles/certbot && molecule test
-  - pushd roles/plex && molecule test
-    env: untestable
+  - pushd $ROLEFOLDER && molecule test
