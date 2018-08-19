@@ -1,8 +1,8 @@
 [docker]
-docker01.jhcloud.io
+docker01.lan.jhcloud.io
 
 [plex]
-plex01.jhcloud.io
+plex01.lan.jhcloud.io
 
 [certbot]
-docker01.jhcloud.io
+docker01.lan.jhcloud.io
