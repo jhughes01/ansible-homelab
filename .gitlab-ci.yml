@@ -4,7 +4,7 @@ stages:
   - test
 
 before_script:
-  - pip33 install virtualenv
+  - pip3 install virtualenv
   - virtualenv virtenv
   - source virtenv/bin/activate
 
