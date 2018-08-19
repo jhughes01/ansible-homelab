@@ -4,7 +4,7 @@ stages:
   - test
 
 before_script:
-  - pip3 install virtualenv
+  - pip33 install virtualenv
   - virtualenv virtenv
   - source virtenv/bin/activate
 
@@ -13,7 +13,7 @@ role-test-certbot:
   tags:
     - docker
   script:
-    - pip install ansible molecule docker
+    - pip3 install ansible molecule docker
     - python -V
     - ansible --version
     - molecule --version
@@ -25,7 +25,7 @@ role-test-common:
   tags:
     - docker
   script:
-    - pip install ansible molecule docker
+    - pip3 install ansible molecule docker
     - python -V
     - ansible --version
     - molecule --version
@@ -37,7 +37,7 @@ role-test-docker:
   tags:
     - docker
   script:
-    - pip install ansible molecule docker
+    - pip3 install ansible molecule docker
     - python -V
     - ansible --version
     - molecule --version
@@ -49,7 +49,7 @@ role-test-plex:
   tags:
     - docker
   script:
-    - pip install ansible molecule docker
+    - pip3 install ansible molecule docker
     - python -V
     - ansible --version
     - molecule --version
