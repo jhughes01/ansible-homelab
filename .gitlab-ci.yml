@@ -11,7 +11,7 @@ cache:
     - virtenv/
 
 before_script:
-  - pip3.6 install virtualenv
+  - pip install virtualenv
   - virtualenv virtenv
   - source virtenv/bin/activate
 
