@@ -9,6 +9,7 @@ before_script:
   - pip3 install virtualenv
   - virtualenv virtenv
   - source virtenv/bin/activate
+  - pip3 install requirements.txt
 
 role-test-certbot:
   image: python:3
@@ -16,7 +17,6 @@ role-test-certbot:
   tags:
     - docker
   script:
-    - pip3 install ansible molecule docker
     - python -V
     - ansible --version
     - molecule --version
@@ -29,24 +29,10 @@ role-test-common:
   tags:
     - docker
   script:
-    - pip3 install ansible molecule docker
     - python -V
     - ansible --version
     - molecule --version
     - pushd roles/common
-    - molecule test
-
-role-test-docker:
-  image: python:3
-  stage: test
-  tags:
-    - docker
-  script:
-    - pip3 install ansible molecule docker
-    - python -V
-    - ansible --version
-    - molecule --version
-    - pushd roles/docker
     - molecule test
 
 role-test-plex:
@@ -55,8 +41,8 @@ role-test-plex:
   tags:
     - docker
   script:
-    - pip3 install ansible molecule docker
     - python -V
     - ansible --version
     - molecule --version
     - pushd roles/plex
+    - molecule test
