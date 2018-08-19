@@ -1,5 +1,7 @@
 ---
-image: python:3
+image: docker:git
+services:
+  - docker:dind
 stages:
   - test
 
@@ -9,6 +11,7 @@ before_script:
   - source virtenv/bin/activate
 
 role-test-certbot:
+  image: python:3
   stage: test
   tags:
     - docker
@@ -21,6 +24,7 @@ role-test-certbot:
     - molecule test
 
 role-test-common:
+  image: python:3
   stage: test
   tags:
     - docker
@@ -33,6 +37,7 @@ role-test-common:
     - molecule test
 
 role-test-docker:
+  image: python:3
   stage: test
   tags:
     - docker
@@ -45,6 +50,7 @@ role-test-docker:
     - molecule test
 
 role-test-plex:
+  image: python:3
   stage: test
   tags:
     - docker
