@@ -6,13 +6,11 @@ stages:
   - test
 
 role-test-certbot:
-  image: python:3
+  image: retr0h/molecule
   stage: test
   tags:
     - docker
   script:
-    - apt-get install -y python-pip libssl-dev 
-    - pip3 install ansible docker molecule
     - docker -v
     - python -V
     - ansible --version
@@ -21,13 +19,11 @@ role-test-certbot:
     - molecule test
 
 role-test-common:
-  image: python:3
+  image: retr0h/molecule
   stage: test
   tags:
     - docker
   script:
-    - apt-get install -y python-pip libssl-dev 
-    - pip3 install ansible docker molecule
     - docker -v
     - python -V
     - ansible --version
@@ -36,13 +32,11 @@ role-test-common:
     - molecule test
 
 role-test-plex:
-  image: python:3
+  image: retr0h/molecule
   stage: test
   tags:
     - docker
   script:
-    - apt-get install -y python-pip libssl-dev 
-    - pip3 install ansible docker molecule
     - docker -v
     - python -V
     - ansible --version
