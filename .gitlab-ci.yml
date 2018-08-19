@@ -22,9 +22,9 @@ molecule:
   tags:
     - docker
   script:
+    - pip install ansible molecule docker
     - docker -v
     - python -V
-    - pip install ansible molecule docker
     - ansible --version
     - molecule --version
     - for role in ${ROLES[*]}; do
