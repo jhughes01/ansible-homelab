@@ -1,16 +1,10 @@
 ---
 image: python:3
 stages:
-  - test
-
-variables:
-  PIP_CACHE_DIR: "$CI_PROJECT_DIR/.pip"
-  ROLES: (certbot common plex)
-
-cache:
-  paths:
-    - .pip/
-    - virtenv/
+  - role-test-certbot
+  - role-test-common
+  - role-test-plex
+  - role-test-docker
 
 before_script:
   - pip3 install virtualenv
@@ -29,3 +23,50 @@ molecule:
     - for role in ${ROLES[*]}; do
       pushd roles/$role/ && molecule test && popd
       done
+
+molecule:
+  stage: role-test-certbot
+  tags:
+    - docker
+  script:
+    - pip install ansible molecule docker
+    - python -V
+    - ansible --version
+    - molecule --version
+    - pushd roles/role-test-certbot
+    - molecule test
+
+molecule:
+  stage: role-test-common
+  tags:
+    - docker
+  script:
+    - pip install ansible molecule docker
+    - python -V
+    - ansible --version
+    - molecule --version
+    - pushd roles/role-test-common
+    - molecule test
+
+molecule:
+  stage: role-test-docker
+  tags:
+    - docker
+  script:
+    - pip install ansible molecule docker
+    - python -V
+    - ansible --version
+    - molecule --version
+    - pushd roles/role-test-docker
+    - molecule test
+
+molecule:
+  stage: role-test-plex
+  tags:
+    - docker
+  script:
+    - pip install ansible molecule docker
+    - python -V
+    - ansible --version
+    - molecule --version
+    - pushd roles/role-test-plex
