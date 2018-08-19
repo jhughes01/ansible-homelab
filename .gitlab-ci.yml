@@ -28,5 +28,5 @@ molecule:
     - ansible --version
     - molecule --version
     - for role in ${ROLES[*]}; do
-      cd roles/$role/ && molecule test
+      pushd roles/$role/ && molecule test && popd
       done
