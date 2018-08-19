@@ -16,7 +16,8 @@ role-test-certbot:
     - ansible --version
     - molecule --version
     - pushd roles/certbot
-    - molecule test
+    - molecule --debug test
+    - popd
 
 role-test-common:
   image: retr0h/molecule
@@ -29,7 +30,8 @@ role-test-common:
     - ansible --version
     - molecule --version
     - pushd roles/common
-    - molecule test
+    - molecule --debug test
+    - popd
 
 role-test-plex:
   image: retr0h/molecule
@@ -42,4 +44,5 @@ role-test-plex:
     - ansible --version
     - molecule --version
     - pushd roles/plex
-    - molecule test
+    - molecule --debug test
+    - popd
