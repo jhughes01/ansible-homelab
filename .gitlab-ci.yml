@@ -5,6 +5,9 @@ services:
 stages:
   - test
 
+before_script:
+  - chmod 700 ansible.cfg # Correct permissions - see: https://github.com/ansible/ansible/pull/42142/files
+
 role-test-certbot:
   image: retr0h/molecule
   stage: test
@@ -42,3 +45,4 @@ role-test-plex:
     - ansible --version
     - molecule --version
     - pushd roles/plex
+    - molecule test
