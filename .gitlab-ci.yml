@@ -12,14 +12,13 @@ cache:
     - virtenv/
 
 before_script:
-  - pip3.6 install virtualenv
+  - pip3 install virtualenv
   - virtualenv virtenv
   - source virtenv/bin/activate
 
 molecule:
   stage: test
   tags:
-    - pip36
     - docker
   script:
     - docker -v
