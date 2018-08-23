@@ -8,14 +8,11 @@
   register: stat_result
 
 - name: Get certificate expiration date
-  openssl_certificate:
-    path: /etc/letsencrypt/live/jhcloud.io/fullchain.pem
-    provider: assertonly
-    valid_in: 86400
-    register: certificate_expiry
-    msg: certificate_expiry
-  when: stat_result.stat.exists == true
+  command: openssl x509 -checkend 172800 -noout -in /etc/letsencrypt/live/jhcloud.io/fullchain.pem
+  register: cert_check
+  changed_when: cert_check.rc != 0
+  failed_when: cert_check.stdout_lines|length > 0
 
 - name: Create / renew letsencrypt certificate
   import_tasks: create-certificate.yaml
-  when: stat_result.stat.exists == false
+  when: cert_check.rc != 0
