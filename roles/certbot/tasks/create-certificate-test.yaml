@@ -1,0 +1,6 @@
+---
+- name: Create / renew letsencrypt certificate
+  shell: certbot certonly --non-interactive --agree-tos --email ENCRYPT --domains ENCRYPT --dns-route53 --server STAGING
+  environment:
+    AWS_ACCESS_KEY_ID: "{{certbot_AWS_ACCESS_KEY}}"
+    AWS_SECRET_ACCESS_KEY: "{{certbot_AWS_SECRET_KEY}}"
