@@ -13,6 +13,10 @@
   changed_when: cert_check.rc != 0
   failed_when: cert_check.stdout_lines|length > 0
 
+- name: Create / renew test letsencrypt certificate
+  import_tasks: create-certificate-test.yaml
+  when: cert_check.rc != 0 and CI
+
 - name: Create / renew letsencrypt certificate
   import_tasks: create-certificate.yaml
-  when: cert_check.rc != 0
+  when: cert_check.rc != 0 and not CI
