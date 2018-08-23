@@ -12,7 +12,8 @@
     path: /etc/letsencrypt/live/jhcloud.io/fullchain.pem
     provider: assertonly
     valid_in: 86400
-    # register: certificate_expiry
+    register: certificate_expiry
+    msg: certificate_expiry
   when: stat_result.stat.exists == true
 
 - name: Create / renew letsencrypt certificate
