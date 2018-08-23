@@ -11,7 +11,7 @@ platforms:
 provisioner:
   name: ansible
   options:
-    'vault-id': ${ANSIBLE_VAULT_PASSWORD}
+    'vault-id': '@$HOME/.ANSIBLE_VAULT_PASSWORD'
   lint:
     name: ansible-lint
 scenario:

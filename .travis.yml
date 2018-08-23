@@ -8,6 +8,7 @@ services:
 
 before_install:
   - sudo apt-get -qq update
+  - echo "$ANSIBLE_VAULT_PASSWORD" > ~/.ANSIBLE_VAULT_PASSWORD
 
 env:
   - ROLEFOLDER=roles/common
