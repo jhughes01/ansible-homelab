@@ -2,11 +2,6 @@
 - name: Install certbot's required packages
   import_tasks: packages.yaml
 
-- name: Check if there is an existing certificate
-  stat:
-    path: /etc/letsencrypt/live/jhcloud.io/fullchain.pem
-  register: stat_result
-
 - name: Get certificate expiration date
   command: openssl x509 -checkend 172800 -noout -in /etc/letsencrypt/live/jhcloud.io/fullchain.pem
   register: cert_check
