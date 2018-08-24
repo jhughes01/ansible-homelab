@@ -2,8 +2,16 @@
 - name: Install certbot's required packages
   import_tasks: packages.yaml
 
+- name: Get certificate expiration date
+  command: openssl x509 -checkend 172800 -noout -in /etc/letsencrypt/live/jhcloud.io/fullchain.pem
+  register: cert_check
+  changed_when: cert_check.rc != 0
+  failed_when: cert_check.stdout_lines|length > 0
+
+- name: Create / renew test letsencrypt certificate
+  import_tasks: create-certificate-test.yaml
+  when: cert_check.rc != 0 and CI
+
 - name: Create / renew letsencrypt certificate
-  shell: "{{certbot_command}}"
-  environment:
-    AWS_ACCESS_KEY_ID: "{{certbot_AWS_ACCESS_KEY}}"
-    AWS_SECRET_ACCESS_KEY: "{{certbot_AWS_SECRET_KEY}}"
+  import_tasks: create-certificate.yaml
+  when: cert_check.rc != 0 and not CI

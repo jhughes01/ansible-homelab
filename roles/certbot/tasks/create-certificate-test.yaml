@@ -1,0 +1,8 @@
+---
+- name: Create / renew test letsencrypt certificate
+  shell: >
+    certbot certonly --non-interactive --agree-tos --email "{{certbot_EMAIL}}" --domains "{{certbot_DOMAIN}}"
+    --dns-route53 --server https://acme-staging-v02.api.letsencrypt.org/directory
+  environment:
+    AWS_ACCESS_KEY_ID: "{{certbot_AWS_ACCESS_KEY}}"
+    AWS_SECRET_ACCESS_KEY: "{{certbot_AWS_SECRET_KEY}}"

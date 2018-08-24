@@ -7,9 +7,12 @@ lint:
   name: yamllint
 platforms:
   - name: instance
-    image: centos:7
+    image: centos/systemd:latest
 provisioner:
   name: ansible
+  options:
+    'vault-id': '@$HOME/.ANSIBLE_VAULT_PASSWORD'
+    'extra-vars': 'CI=true'
   lint:
     name: ansible-lint
 scenario:
