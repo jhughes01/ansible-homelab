@@ -21,7 +21,6 @@ Molecule has a full test matrix from linting to integration tests using a docker
 I use [`Travis CI`](https://travis-ci.org/jhughes01/ansible-homelab) as it's free and open source - I could host my own Gitlab omnibus but I use Gitlab at work and Travis is different and new - so Travis it is.
 
 
-
 ### Integration Testing
 
 Integration tests are performed using docker to exercise each role against a test node with Molecule. 
