@@ -18,9 +18,9 @@ I've chosen [`molecule`](https://molecule.readthedocs.io/en/latest/ "Molecule do
 
 Molecule has a full test matrix from linting to integration tests using a docker driver. This extends nicely and naturally into a CI pipeline. 
 
-I use `Travis CI` as it's free and open source - I could host my own Gitlab omnibus but I use Gitlab at work and Travis is different and new - so Travis it is.
+I use [`Travis CI`](https://travis-ci.org/jhughes01/ansible-homelab) as it's free and open source - I could host my own Gitlab omnibus but I use Gitlab at work and Travis is different and new - so Travis it is.
 
-[Travis link for this repo](https://travis-ci.org/jhughes01/ansible-homelab)
+
 
 ### Integration Testing
 
