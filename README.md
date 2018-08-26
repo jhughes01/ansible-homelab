@@ -2,7 +2,7 @@
 
 # Ansible config and playbooks for my homelab.
 
-![](https://whitesmith-website.s3.amazonaws.com/2016/Feb/ansible-1456397742246.png "Ansible Logo")
+<div style="text-align:center"><img src="https://whitesmith-website.s3.amazonaws.com/2016/Feb/ansible-1456397742246.png" alt="Ansible Logo" Width="250"/>
 
 I'm rebuilding my homelab, replacing my puppet infrastructure with Ansible for learning purposes. 
 
