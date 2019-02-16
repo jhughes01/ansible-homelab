@@ -4,7 +4,7 @@
   user: ansible
   become: true
 
-  tasks: 
+  pre_tasks: 
     - include_tasks: playbooks/install-roles.yml
 
   roles:
