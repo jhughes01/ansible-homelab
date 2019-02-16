@@ -4,6 +4,8 @@
   user: ansible
   become: true
 
+- name: Install ansible role dependencies via Galaxy
+  include_playbook: playbooks/install-roles.yml
+
   roles:
     - { role: common }
-    - { role: certbot }

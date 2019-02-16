@@ -1,0 +1,7 @@
+---
+- hosts: localhost
+  user: ansible
+  become: true
+
+- name: Get Ansible Role dependencies via Galaxy
+  local_action: command ansible-galaxy install -r requirements.yml -p roles/
