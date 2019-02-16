@@ -6,3 +6,5 @@ plex01.lan.jhcloud.io
 
 [certbot]
 docker01.lan.jhcloud.io
+
+nginxdocs01.lan.jhcloud.io
