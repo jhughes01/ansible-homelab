@@ -1,0 +1,8 @@
+---
+- name: NGINX Docs VM
+  hosts: localhost
+  user: ansible
+  become: true
+
+  roles:
+    - { role: common }
