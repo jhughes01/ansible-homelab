@@ -1,0 +1,11 @@
+- src: https://github.com/jhughes01/ansible-role-common
+  version: master
+  name: common
+
+- src: https://github.com/jhughes01/ansible-role-plex
+  version: master
+  name: plex
+
+- src: https://github.com/jhughes01/ansible-role-certbot
+  version: master
+  name: certbot
