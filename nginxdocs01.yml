@@ -4,9 +4,7 @@
   user: ansible
   become: true
 
-  pre_tasks:
-    - name: Install ansible role dependencies via Galaxy
-      local_action: command ansible-galaxy install -r requirements.yml -p roles/
+  include_tasks: playbooks/install-roles.yml
 
   roles:
     - { role: common }
