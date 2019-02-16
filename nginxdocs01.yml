@@ -5,7 +5,7 @@
   become: true
 
 - name: Install ansible role dependencies via Galaxy
-  include_playbook: playbooks/install-roles.yml
+  import_playbook: playbooks/install-roles.yml
 
   roles:
     - { role: common }
