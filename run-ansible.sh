@@ -12,4 +12,8 @@ git clone "$1" --branch "$2" "$GIT_CLONE_DIR"
 
 cd "$GIT_CLONE_DIR"
 
+# Install role dependencies via Galaxy
+ansible-galaxy install -r requirements.yml
+
+# Execute ansible against localhost based on declared .yml
 ansible-playbook "$HOSTNAME.yml"
