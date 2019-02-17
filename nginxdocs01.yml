@@ -4,8 +4,5 @@
   user: ansible
   become: true
 
-  tasks: 
-    - include: playbooks/install-roles.yml
-
   roles:
     - { role: common }
