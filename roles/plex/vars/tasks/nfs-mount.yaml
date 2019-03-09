@@ -1,0 +1,20 @@
+---
+- name: Include vars
+  include_vars: main.yaml
+
+- name: Set UID of plex user in line with NFS permissions
+  user:
+    name: plex
+    uid: 1050
+
+- name: Install NFS utilies
+  yum:
+    name: nfs-utils
+    state: present
+
+- name: Mount network file share
+  mount:
+    path: /media
+    src: "{{ plex_nfs_path }}"
+    fstype: nfs
+    state: mounted

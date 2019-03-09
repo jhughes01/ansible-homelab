@@ -1,8 +1,9 @@
-[docker]
-docker01.lan.jhcloud.io
-
 [plex]
 plex01.lan.jhcloud.io
+plex02.lan.jhcloud.io
 
-[certbot]
-docker01.lan.jhcloud.io
+nodejs01.lan.jhcloud.io
+nginxdocs01.lan.jhcloud.io
+
+[prometheus]
+prom01.lan.jhcloud.io
