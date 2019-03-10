@@ -2,5 +2,5 @@
 - hosts: plex
   remote_user: ansible
   roles:
-  - common
-  - plex
+  - ansible-role-common
+  - ansible-role-plex
