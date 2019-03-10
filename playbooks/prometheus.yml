@@ -1,7 +1,0 @@
----
-- hosts: prometheus
-  remote_user: ansible
-  roles:
-  - cloudalchemy.prometheus
-  - cloudalchemy.blackbox-exporter
-  - cloudalchemy.grafana
