@@ -1,6 +1,0 @@
----
-- hosts: docker
-  remote_user: ansible
-  roles:
-  - common
-  - docker

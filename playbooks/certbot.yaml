@@ -2,5 +2,5 @@
 - hosts: certbot
   remote_user: ansible
   roles:
-  - common
-  - certbot
+  - ansible-role-common 
+  - ansible-role-certbot

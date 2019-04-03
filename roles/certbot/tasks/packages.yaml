@@ -1,7 +1,0 @@
----
-- name: Install certbot packages
-  yum:
-    name: "{{ packages }}"
-  vars:
-    packages:
-      - python2-certbot-dns-route53.noarch
