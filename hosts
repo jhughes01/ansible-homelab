@@ -1,8 +1,7 @@
 nginxdocs01.lan.jhcloud.io
 
 [plex]
-plex01.lan.jhcloud.io
-plex02.lan.jhcloud.io
+plex02.lan.jhcloud.io plex_nfs_path=192.168.1.10:/mnt/Vol01/plex_media/media
 
 [prometheus]
 prom01.lan.jhcloud.io
