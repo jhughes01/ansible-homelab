@@ -1,6 +1,7 @@
 ---
 # Firewall variables
-firewalld_open_ports: []
+firewalld_open_ports: 
+  - "3306/tcp"
 
 firewalld_active_services:
   - "ssh"
