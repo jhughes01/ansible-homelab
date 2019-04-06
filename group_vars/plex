@@ -1,4 +1,4 @@
 ---
 firewalld_open_ports:
+  - "22/tcp"
   - "32400/tcp"
-
