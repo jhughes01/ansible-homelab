@@ -1,0 +1,4 @@
+---
+firewalld_open_ports:
+  - "22/tcp"
+
