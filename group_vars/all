@@ -5,3 +5,14 @@ firewalld_open_ports: []
 firewalld_active_services:
   - "ssh"
 
+users:
+  - username: jhughes
+    sudo: yes
+    groups: wheel
+    github_username: jhughes01
+
+  - username: nbedford
+    sudo: yes
+    groups: wheel
+    github_username: nathalie-bedford
+

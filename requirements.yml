@@ -14,3 +14,5 @@
 - src: https://github.com/jhughes01/ansible-role-nfs-client-plex
   version: master
 
+- src: https://github.com/jhughes01/ansible-role-local-users
+  version: master
